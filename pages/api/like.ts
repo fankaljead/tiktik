@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { client } from "../../utils/clients";
+
 import { uuid } from "uuidv4";
 
 export default async function handler(
@@ -22,7 +23,7 @@ export default async function handler(
           .commit()
       : await client
           .patch(postId)
-          .unset([`like[_ref=="${userId}"]`])
+          .unset([`likes[_ref=="${userId}"]`])
           .commit();
 
     res.status(200).json(data);

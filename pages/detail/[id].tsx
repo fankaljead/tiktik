@@ -30,7 +30,6 @@ const Detail = ({ postDetails }: IProps) => {
 
   const userProfile: any = userAuthStore();
 
-  console.log("post:", post);
 
   const onVideoClick = () => {
     if (playing) {
@@ -183,7 +182,6 @@ export const getServerSideProps = async ({
   params: { id: string };
 }) => {
   const { data } = await axios.get(`${BASE_URL}/api/post/${id}`);
-  console.log("detail data:", data);
 
   return {
     props: {
